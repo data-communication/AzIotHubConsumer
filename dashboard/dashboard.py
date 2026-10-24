@@ -32,8 +32,7 @@ class Dashboard:
 
             for snap in snapshots:
                 ts = snap["timestamp"]
-                ts_local = datetime.fromisoformat(ts.replace("Z", "+00:00"))
-
+                ts_local = datetime.fromisoformat(ts.replace("Z", "+00:00")).replace(tzinfo=None)
                 print(f"  {self.YELLOW}{ts_local}{self.RESET}")
 
                 for m in snap["measurements"]:
